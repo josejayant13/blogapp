@@ -1,15 +1,22 @@
 <%- include("partials/header"); -%>
 
 <h1>HOME</h1>
-<!-- <p> <%= startingContent %> </p> -->
-
-
+<div class="row">
 <%  posts.reverse().forEach(function(post){ %>
 
-<h1><%=post.title%></h1>
-<p>
-  <%=post.content.substring(0, 100) + " ..."%>
-  <a href="/posts/<%=post._id%>">Read More</a>
-</p>
+  <div class="col-lg-3 col-md-6">
+    <div class="card mb-4" >
+      <div class="card-body">
+        <h4 class="title card-header"><%=post.title%></h4>
+        </h5>
+        <p class="content card-text"><%=post.content.substring(0, 100) + " ..."%></p>
+        <a href="/posts/<%=post._id%>" class="card-link">Read More</a>
+      </div>
+    </div>
+  </div>
 <% }) %>
+</div>
+<br>
+<center><button onclick="document.location='compose'" type="button" class="btn btn-light btn-lg">Compose</button></center>
 <%- include("partials/footer"); -%>
+
