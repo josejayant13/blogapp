@@ -65,6 +65,20 @@ const requestedPostId = req.params.postId;
   });
 
 });
+app.get("/delete/:postId",(req,res)=>{
+ const requestedPostId = req.params.postId;
+ console.log(requestedPostId);
+ Post.deleteOne({ _id: requestedPostId }, function (err) 
+ {
+  if (err){
+    console.log(err);
+  }
+  else
+    console.log("Post delted successfully");
+    res.redirect("/");
+  });
+ 
+});
 
 app.get("/about", function(req, res){
   res.render("about", {aboutContent: aboutContent});
