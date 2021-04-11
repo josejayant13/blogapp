@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
 //post database
-mongoose.connect(process.env.DB_KEY, {useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect("mongodb+srv://admin-jose:Jose@1234@cluster0.yiwiu.mongodb.net/blogDB", {useNewUrlParser: true, useUnifiedTopology: true });
 
 const postSchema = {
   title: String,
@@ -55,15 +55,16 @@ const requestedPostId = req.params.postId;
 });
 app.get("/delete/:postId",(req,res)=>{
  const requestedPostId = req.params.postId;
- console.log(requestedPostId);
  Post.deleteOne({ _id: requestedPostId }, function (err) 
  {
   if (err){
     console.log(err);
   }
   else
-    console.log("Post delted successfully");
+    {
+    console.log("Post deleted successfully");
     res.redirect("/");
+    }
   });
  
 });
@@ -85,6 +86,7 @@ app.post("/compose", function(req, res)
   });
   post.save(function(err){
     if (!err){
+      console.log("post added successfully");
         res.redirect("/");
     }
   });
