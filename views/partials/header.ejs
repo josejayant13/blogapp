@@ -7,6 +7,10 @@
   <meta charset="utf-8">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" href="/css/styles.css">
+  <script src="https://cdn.ckeditor.com/ckeditor5/27.1.0/classic/ckeditor.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/table-to-json@1.0.0/lib/jquery.tabletojson.min.js" integrity="sha256-H8xrCe0tZFi/C2CgxkmiGksqVaxhW0PFcUKZJZo1yNU=" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
@@ -16,7 +20,7 @@
     <!-- <div class="container"> -->
 
       <div class="navbar-header">
-        <p class="navbar-brand">BLOG</p>
+        <p class="navbar-brand">PHONE.blog</p>
       </div>
       
       <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
@@ -25,9 +29,18 @@
 
       <div class="collapse navbar-collapse" id="navbarMenu">
         <ul class="nav navbar-nav ml-auto">
+          <%if(isLoggedIn){%>
+            <li class="nav-item" id="welcome">WELCOME ADMIN!...| </li>
+          <%}%>
           <li class="nav-item" id="home"><a class="nav-item-link" href="/">HOME</a></li>
           <li class="nav-item" id="about"><a class="nav-item-link" href="/about">ABOUT</a></li>
           <li class="nav-item" id="contact"><a class="nav-item-link" href="/contact">CONTACT</a></li>
+          <%if(!isLoggedIn){%>
+            <li class="nav-item" id="adminlogin"><a class="nav-item-link" href="/login">LOGIN</a></li>
+          <%}else{%>
+            <li class="nav-item" id="adminlogout"><a class="nav-item-link" href="/logout">LOGOUT</a></li>
+          <%}%>
+
         </ul>
       </div>
 

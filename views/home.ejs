@@ -8,16 +8,19 @@
     <div class="card mb-4" >
       <div class="card-body">
         <h4 class="title card-header"><%=post.title%></h4>
-        </h5>
-        <p class="content card-text"><%=post.content.substring(0, 100) + " ..."%></p>
+        <p class="content card-text"><%= post.content.replace(/(<([^>]+)>)/ig, "").substring(0, 100) + " ..."%></p>
         <a href="/posts/<%=post._id%>" class="card-link">Read More</a>
+        <%if(isLoggedIn){%>
         <a class="delete" href="/delete/<%=post._id%>" class="card-link">Delete</a>
+        <%}%>
       </div>
     </div>
   </div>
 <% }) %>
 </div>
 <br>
+<%if(isLoggedIn){%>
 <center><button onclick="document.location='compose'" type="button" class="btn btn-light btn-lg">Compose</button></center>
+<%}%>
 <%- include("partials/footer"); -%>
 

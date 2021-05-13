@@ -14,6 +14,7 @@ body{
 .content{
   font-size: 1rem;
   font-family: 'Montserrat', sans-serif;
+  margin: 30px;
 }
 .custom-box{
   margin: 0px;
