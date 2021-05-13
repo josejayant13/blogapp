@@ -1,2 +1,2 @@
 # blogapp
-This is a simple blog app. Here is the preview link: https://joseblogapp.herokuapp.com/
+This is a simple blog website. Here is the preview link: https://joseblogapp.herokuapp.com/
